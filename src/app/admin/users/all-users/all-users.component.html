@@ -1,0 +1,11 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2>Users</h2>
+  </div>
+  <div class="panel-body">
+    <button type="button"(click)="onGetUsers()" class="btn btn-defoult" name="button">Get users</button>
+    <hr>
+    <app-user *ngFor ="let user of users"></app-user>
+  </div>
+</div>
+
