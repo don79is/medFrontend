@@ -20,11 +20,4 @@ export class AllUsersComponent implements OnInit {
                 (error: Response) => console.log(error),
             );
     }
-
-    // onGetUsers() {
-    //     this.userService.getUsers().subscribe(
-    //         (users: User[]) => this.users = users,
-    //         (error: Response) => console.log(error),
-    //     );
-    // }
 }
