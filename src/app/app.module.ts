@@ -15,6 +15,7 @@ import { PostComponent } from './admin/posts/post/post.component';
 import {PostService} from './post.services';
 import { SigninComponent } from './admin/auth/signin/signin.component';
 import { SignoutComponent } from './admin/auth/signout/signout.component';
+import { DashboardComponent} from './admin/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -25,7 +26,9 @@ import { SignoutComponent } from './admin/auth/signout/signout.component';
     AllPostsComponent,
     PostComponent,
     SigninComponent,
-    SignoutComponent
+    SignoutComponent,
+    DashboardComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
