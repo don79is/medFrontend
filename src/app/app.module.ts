@@ -16,6 +16,7 @@ import {PostService} from './post.services';
 import { SigninComponent } from './admin/auth/signin/signin.component';
 import { SignoutComponent } from './admin/auth/signout/signout.component';
 import { DashboardComponent} from './admin/dashboard/dashboard.component';
+import {AuthGuardService} from "./auth-guard.service";
 
 
 @NgModule({
@@ -36,7 +37,7 @@ import { DashboardComponent} from './admin/dashboard/dashboard.component';
     HttpModule,
       routing,
   ],
-  providers: [UserService, PostService, AuthService],
+  providers: [UserService, PostService, AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
