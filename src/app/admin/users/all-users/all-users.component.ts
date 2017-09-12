@@ -20,4 +20,10 @@ export class AllUsersComponent implements OnInit {
                 (error: Response) => console.log(error),
             );
     }
+    delete(id: any) {
+        const result = confirm('Are you sure?');
+        if (result) {
+            this.userService.deleteUser(id);
+        }
+    }
 }

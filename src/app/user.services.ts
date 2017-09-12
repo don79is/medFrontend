@@ -18,12 +18,17 @@ export class UserService {
     createUser(first_name: string,
                last_name: string,
                email: string,
-               password: string,
                position: string,
+               password: string,
                role_id: string) {
         const token = this.authService.getToken();
-        return this.http.post('http://medback.dev/api/users/token' + token,
-            {fist_name: first_name, last_name: last_name, email: email, password: password, position: position, role_id: role_id},
+        return this.http.post('http://medback.dev/api/users?token=' + token,
+            {first_name: first_name,
+                last_name: last_name,
+                email: email,
+                position: position,
+                password: password,
+                role_id: role_id},
             {headers: new Headers({'X-Requested-With': 'XTMLHttpRequest'})}
         ).map(
             (response: Response) => {
@@ -31,5 +36,12 @@ export class UserService {
             }
         );
     }
+    deleteUser (id: any) {
+        const token = this.authService.getToken ();
+        return this.http.delete('http://medback.dev/api/users' + id + '?token=' + token);
+    }
 }
+
+
+
 

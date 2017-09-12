@@ -29,7 +29,12 @@
                     {{user.position}}
                 </td>
                 <td>
-                    Edit|Delete
+                    <button class="btn btn-sm btn-info" >
+                        <span class="glyphicon glyphicon-edit"></span>
+                    </button>
+                    <button (click)="delete(user.id)" type="button" class="btn btn-sm btn-danger" >
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </button>
                 </td>
             </tr>
             </thead>
