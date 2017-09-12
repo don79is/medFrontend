@@ -16,7 +16,9 @@ import {PostService} from './post.services';
 import { SigninComponent } from './admin/auth/signin/signin.component';
 import { SignoutComponent } from './admin/auth/signout/signout.component';
 import { DashboardComponent} from './admin/dashboard/dashboard.component';
-import {AuthGuardService} from "./auth-guard.service";
+import {AuthGuardService} from './auth-guard.service';
+import { AddUserComponent } from './admin/users/add-user/add-user.component';
+import { EditUserComponent } from './admin/users/edit-user/edit-user.component';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import {AuthGuardService} from "./auth-guard.service";
     SigninComponent,
     SignoutComponent,
     DashboardComponent,
-    DashboardComponent
+    DashboardComponent,
+    AddUserComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,

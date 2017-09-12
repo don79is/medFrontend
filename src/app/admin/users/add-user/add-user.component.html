@@ -1,0 +1,46 @@
+<div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Add new user
+        </div>
+        <div class="panel-body">
+            <form (ngSubmit)="onCreate(f)" #f="ngForm">
+                <div class="form-group">
+                    <label for="first_name">First Name</label>
+                    <input class="form-control" type="text" id="first_name" name="first_name" value="" ngModel required>
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Last Name</label>
+                    <input class="form-control" type="text" id="last_name" name="last_name" value="" ngModel>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input class="form-control" type="text" id="email" name="email" value="" ngModel>
+                </div>
+                <div class="form-group">
+                    <label for="position">Position</label>
+                    <input class="form-control" type="text" id="position" name="position" value="" ngModel>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input class="form-control" type="password" id="password" name="password" value="" ngModel>
+                </div>
+                <div class="form-group">
+                    <label for="role_id">Role</label>
+                    <select class="form-control" id="role_id" name="role_id" ngModel="">
+                        <option value="" disabled>Select role</option>
+                        <option value="1">Moderator</option>
+                        <option value="2">Administator</option>
+                        <option value="3">Dr.House</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="submit" [disabled]="!f.valid"  class="btn btn-success"
+                            name="button">Create user
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
