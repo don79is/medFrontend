@@ -19,6 +19,8 @@ import {DashboardComponent} from './admin/dashboard/dashboard.component';
 import {AuthGuardService} from './auth-guard.service';
 import {AddUserComponent} from './admin/users/add-user/add-user.component';
 import {EditUserComponent} from './admin/users/edit-user/edit-user.component';
+import {EditPostComponent} from './admin/posts/edit-post/edit-post.component';
+import {AddPostComponent} from './admin/posts/add-post/add-post.component';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import {EditUserComponent} from './admin/users/edit-user/edit-user.component';
         DashboardComponent,
         DashboardComponent,
         AddUserComponent,
-        EditUserComponent
+        EditUserComponent,
+        EditPostComponent,
+        AddPostComponent
     ],
     imports: [
         BrowserModule,
