@@ -9,6 +9,7 @@
         <table class="table">
             <thead class="thead-inverse">
             <tr>
+                <th>Id</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Email</th>
@@ -16,6 +17,9 @@
                 <th>Actions</th>
             </tr>
             <tr *ngFor="let user of users">
+                <td>
+                    {{user.id}}
+                </td>
                 <td>
                     {{user.first_name}}
                 </td>
@@ -29,10 +33,10 @@
                     {{user.position}}
                 </td>
                 <td>
-                    <button class="btn btn-sm btn-info" >
+                    <button [routerLink]="['../edit-user',{id: user.id}]" class="btn btn-sm btn-info" >
                         <span class="glyphicon glyphicon-edit"></span>
                     </button>
-                    <button (click)="delete(user.id)" type="button" class="btn btn-sm btn-danger" >
+                    <button (click)="onDelete(user)" type="button" class="btn btn-sm btn-danger" >
                         <span class="glyphicon glyphicon-trash"></span>
                     </button>
                 </td>

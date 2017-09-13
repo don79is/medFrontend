@@ -3,6 +3,7 @@ import {Http, Response, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Observable';
 import {AuthService} from './auth.service';
+import {User} from './user.interface';
 @Injectable()
 export class UserService {
     constructor(private http: Http, private authService: AuthService) {
@@ -14,6 +15,14 @@ export class UserService {
                     return response.json().users;
                 }
             );
+    }
+    getUser(id: any): Observable<any> {
+        const token = this.authService.getToken();
+        return this.http.get('http://medback.dev//api/users/' + id + '?token=' + token, ).map(
+            (response: Response) => {
+                return response.json().user;
+            }
+        );
     }
     createUser(first_name: string,
                last_name: string,
@@ -36,9 +45,18 @@ export class UserService {
             }
         );
     }
+    updateUser(user: User) {
+        const  token = this.authService.getToken();
+        return this.http.put('http://medback.dev//api/users/' + user.id + '?token=' + token,
+            JSON.stringify(user),
+            {headers: new Headers({'Content-type': 'application/json'})}
+        ).map(
+            (responce: Response) => responce.json()
+        );
+    }
     deleteUser (id: any) {
-        const token = this.authService.getToken ();
-        return this.http.delete('http://medback.dev/api/users' + id + '?token=' + token);
+        const token = this.authService.getToken();
+        return this.http.delete('http://medback.dev/api/users/' + id + '?token=' + token);
     }
 }
 

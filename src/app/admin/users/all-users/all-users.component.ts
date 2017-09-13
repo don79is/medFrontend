@@ -20,10 +20,16 @@ export class AllUsersComponent implements OnInit {
                 (error: Response) => console.log(error),
             );
     }
-    delete(id: any) {
+    onDelete(user) {
         const result = confirm('Are you sure?');
         if (result) {
-            this.userService.deleteUser(id);
+            const index = this.users.indexOf(user);
+            this.users.splice(index, 1);
+            this.userService.deleteUser(user.id)
+                .subscribe(null, error => {
+                    alert('Could not delete user.');
+                    this.users.splice( index, 0, user);
+                });
         }
     }
 }
