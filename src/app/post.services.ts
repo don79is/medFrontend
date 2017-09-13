@@ -26,13 +26,12 @@ export class PostService {
         );
     }
 
-    createPost(user_id: string,
+    createPost(
                title: string,
                text: string) {
         const token = this.authService.getToken();
         return this.http.post('http://medback.dev/api/posts?token=' + token,
             {
-                user_id: user_id,
                 title: title,
                 text: text},
             {headers: new Headers({'X-Requested-With': 'XTMLHttpRequest'})}
