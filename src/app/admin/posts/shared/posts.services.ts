@@ -2,10 +2,10 @@ import {Injectable} from '@angular/core';
 import {Http, Response, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Observable';
-import {AuthService} from './admin/auth.service';
-import {Post} from './post.interface';
+import {AuthService} from '../../auth.service';
+import {Post} from './post';
 @Injectable()
-export class PostService {
+export class PostsService {
     constructor(private http: Http, private authService: AuthService) {
 
     }
@@ -26,22 +26,16 @@ export class PostService {
         );
     }
 
-    createPost(
-               title: string,
-               text: string) {
+    createPost(post) {
         const token = this.authService.getToken();
         return this.http.post('http://medback.dev/api/posts?token=' + token,
-            {
-                title: title,
-                text: text},
+            post,
             {headers: new Headers({'X-Requested-With': 'XTMLHttpRequest'})}
         ).map(
-            (response: Response) => {
-                return true;
-            }
+            (response: Response) => response.json()
         );
     }
-    updatePost(post: Post) {
+    updatePost(post) {
         const  token = this.authService.getToken();
         return this.http.put('http://medback.dev//api/posts/' + post.id + '?token=' + token,
             JSON.stringify(post),

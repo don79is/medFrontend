@@ -10,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 import {AdminModule} from './admin/admin.module';
 import {UsersModule} from './admin/users/users.module';
 import {usersRouting} from './admin/users/users.routing';
+import {PostsModule} from './admin/posts/posts.module';
+import {postsRouting} from './admin/posts/posts.routing';
 
 
 @NgModule({
@@ -27,6 +29,8 @@ import {usersRouting} from './admin/users/users.routing';
         adminRouting,
         UsersModule,
         usersRouting,
+        PostsModule,
+        postsRouting,
     ],
     providers: [],
     bootstrap: [AppComponent]

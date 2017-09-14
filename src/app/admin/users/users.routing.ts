@@ -1,4 +1,3 @@
-
 import {RouterModule, Routes} from '@angular/router';
 
 import {AuthGuardService} from '../auth-guard.service';
