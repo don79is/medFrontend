@@ -1,52 +1,34 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {adminRouting} from './admin/admin.routing';
+import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
-
-import {AuthService} from './auth.service';
-
 import {AppComponent} from './app.component';
-import {AllUsersComponent} from './admin/users/all-users/all-users.component';
-import {UserComponent} from './admin/users/user/user.component';
 import {routing} from './app.routing';
-import {UserService} from './user.services';
-import {AllPostsComponent} from './admin/posts/all-posts/all-posts.component';
-import {PostComponent} from './admin/posts/post/post.component';
-import {PostService} from './post.services';
-import {SigninComponent} from './admin/auth/signin/signin.component';
-import {SignoutComponent} from './admin/auth/signout/signout.component';
-import {DashboardComponent} from './admin/dashboard/dashboard.component';
-import {AuthGuardService} from './auth-guard.service';
-import {AddUserComponent} from './admin/users/add-user/add-user.component';
-import {EditUserComponent} from './admin/users/edit-user/edit-user.component';
-import {EditPostComponent} from './admin/posts/edit-post/edit-post.component';
-import {AddPostComponent} from './admin/posts/add-post/add-post.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { HomeComponent } from './home/home.component';
+import {AdminModule} from './admin/admin.module';
+import {UsersModule} from './admin/users/users.module';
+import {usersRouting} from './admin/users/users.routing';
 
 
 @NgModule({
     declarations: [
         AppComponent,
-        AllUsersComponent,
-        UserComponent,
-        AllPostsComponent,
-        PostComponent,
-        SigninComponent,
-        SignoutComponent,
-        DashboardComponent,
-        DashboardComponent,
-        AddUserComponent,
-        EditUserComponent,
-        EditPostComponent,
-        AddPostComponent
+        HomeComponent,
+        NotFoundComponent,
     ],
     imports: [
         BrowserModule,
         FormsModule,
         HttpModule,
         routing,
-        ReactiveFormsModule,
+        AdminModule,
+        adminRouting,
+        UsersModule,
+        usersRouting,
     ],
-    providers: [UserService, PostService, AuthService, AuthGuardService],
+    providers: [],
     bootstrap: [AppComponent]
 })
 export class AppModule {
