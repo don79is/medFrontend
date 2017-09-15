@@ -10,11 +10,12 @@ import {AuthGuardService} from './auth-guard.service';
 import {NavBarComponent} from './nav-bar/nav-bar.component';
 
 
+
 @NgModule({
     declarations: [
         NavBarComponent,
         SigninComponent,
-        DashboardComponent
+        DashboardComponent,
     ],
     imports: [
         CommonModule,

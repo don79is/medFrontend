@@ -12,6 +12,8 @@ import {UsersModule} from './admin/users/users.module';
 import {usersRouting} from './admin/users/users.routing';
 import {PostsModule} from './admin/posts/posts.module';
 import {postsRouting} from './admin/posts/posts.routing';
+import {rolesRouting} from './admin/roles/roles.routing';
+import {RolesModule} from './admin/roles/roles.module';
 
 
 @NgModule({
@@ -31,6 +33,8 @@ import {postsRouting} from './admin/posts/posts.routing';
         usersRouting,
         PostsModule,
         postsRouting,
+        RolesModule,
+        rolesRouting,
     ],
     providers: [],
     bootstrap: [AppComponent]
