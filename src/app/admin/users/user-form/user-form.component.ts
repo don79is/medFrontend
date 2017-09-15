@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {User} from '../shared/user';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UsersService} from '../shared/users.services';
+import {Role} from "../../roles/shared/role";
 
 @Component({
     selector: 'app-user-form',
@@ -14,7 +15,6 @@ export class UserFormComponent implements OnInit {
     title: string;
     user: User = new User();
     showPassword: boolean;
-
     constructor(formBuilder: FormBuilder,
                 private router: Router,
                 private activatedRoute: ActivatedRoute,
@@ -35,7 +35,7 @@ export class UserFormComponent implements OnInit {
             email: ['', [
                 Validators.required,
             ]],
-            role_id: [''],
+            role_id: ['',],
             password: ['', [
                 Validators.required
             ]]
@@ -61,12 +61,13 @@ export class UserFormComponent implements OnInit {
             this.showPassword = true;
         }
     }
+
     onSave() {
-     let result, user = this.form.value;
-        if (this.user.id){
+        let result, user = this.form.value;
+        if (this.user.id) {
             user.id = this.user.id;
             result = this.usersService.updateUser(user);
-        }else {
+        } else {
             result = this.usersService.createUser(user);
         }
         result.subscribe(

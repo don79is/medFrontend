@@ -9,8 +9,7 @@ import {UsersService} from './shared/users.services';
     styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-   public users: User[] = [];
-
+    public users: User[] = [];
     constructor(private usersService: UsersService) {
     }
 
@@ -22,7 +21,7 @@ export class UsersComponent implements OnInit {
     }
 
     onDelete(user) {
-       if (confirm('Are you sure?' + user.first_name + '?')) {
+        if (confirm('Are you sure?' + user.first_name + '?')) {
             const index = this.users.indexOf(user);
             this.users.splice(index, 1);
             this.usersService.deleteUser(user.id)
