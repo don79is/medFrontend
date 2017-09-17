@@ -35,7 +35,7 @@ export class UserFormComponent implements OnInit {
             email: ['', [
                 Validators.required,
             ]],
-            role_id: ['',],
+            role_id: ['roles',],
             password: ['', [
                 Validators.required
             ]]
