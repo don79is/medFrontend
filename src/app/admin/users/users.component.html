@@ -10,19 +10,16 @@
             <thead class="thead-inverse">
             <tr>
                 <th>Id</th>
-                <th>Role ID</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Email</th>
                 <th>Position</th>
+                <th>Role</th>
                 <th>Actions</th>
             </tr>
             <tr *ngFor="let user of users">
                 <td>
                     {{user.id}}
-                </td>
-                <td>
-                    {{user.role_id}}
                 </td>
                 <td>
                     {{user.first_name}}
@@ -36,6 +33,14 @@
                 <td>
                     {{user.position}}
                 </td>
+                <td>
+                    <!-- if user can have one role-->
+                    <!--{{user.roles[0].name}}-->
+
+                    <!--if user hae many roles-->
+                <span *ngFor="let role of user.roles">{{role.name}}</span>
+                </td>
+
                 <td>
                     <button [routerLink]="['/admin/users', user.id]" class="btn btn-sm btn-info" >
                         <span class="glyphicon glyphicon-edit"></span>

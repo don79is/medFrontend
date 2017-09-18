@@ -3,7 +3,9 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {User} from '../shared/user';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UsersService} from '../shared/users.services';
-import {Role} from "../../roles/shared/role";
+import {RolesService} from '../../roles/shared/roles.services';
+import {Role} from '../../roles/shared/role';
+
 
 @Component({
     selector: 'app-user-form',
@@ -15,10 +17,12 @@ export class UserFormComponent implements OnInit {
     title: string;
     user: User = new User();
     showPassword: boolean;
+    roles: Role = new Role();
     constructor(formBuilder: FormBuilder,
                 private router: Router,
                 private activatedRoute: ActivatedRoute,
-                private usersService: UsersService) {
+                private usersService: UsersService,
+    private rolesService: RolesService) {
         this.form = formBuilder.group({
             first_name: ['', [
                 Validators.required,
@@ -35,7 +39,7 @@ export class UserFormComponent implements OnInit {
             email: ['', [
                 Validators.required,
             ]],
-            role_id: ['roles',],
+            role_id: ['', ],
             password: ['', [
                 Validators.required
             ]]
@@ -43,6 +47,10 @@ export class UserFormComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.rolesService.getRoles().subscribe(
+            roles => this.roles = roles,
+            (error: Response) => console.log(error),
+        );
         const id = this.activatedRoute.params.subscribe(params => {
             let id = params['id'];
             this.title = id ? 'Edit user' : 'New user';
