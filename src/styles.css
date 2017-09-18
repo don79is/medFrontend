@@ -2,4 +2,87 @@
 .add-button-top{
     margin-top: -35px;
 }
+li {
+    list-style: none;
+}
+a:hover,
+a:visited,
+a {
+    text-decoration: none;
+}
+h1,
+h2 {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/*header area*/
+
+.top-header {
+    background: #fff !important;
+    position: fixed;
+    width: 100%;
+    z-index: 99999;
+}
+.header-backup {
+    width: 20px;
+    height: 119px;
+    background: transparent;
+    margin: auto;
+}
+.top-header img.logo {
+    margin-bottom: 25px;
+    margin-top: -15px;
+    transition: all .5s ease 0s;
+    -webkit-transition: all .5s ease 0s;
+    -moz-transition: all .5s ease 0s;
+    -o-transition: all .5s ease 0s;
+    -ms-transition: all .5s ease 0s;
+}
+.navbar-default {
+    background-color: transparent;
+    border-color: transparent;
+    margin-bottom: 0;
+    margin-top: 8px;
+    transition: all .5s ease 0s;
+    -webkit-transition: all .5s ease 0s;
+    -moz-transition: all .5s ease 0s;
+    -o-transition: all .5s ease 0s;
+    -ms-transition: all .5s ease 0s;
+}
+.nav-bar {
+    margin-top: 29px;
+}
+.navbar-toggle span {
+    color: #fff;
+}
+ul.nav {
+    margin: 0;
+    padding: 0;
+}
+.navbar-default .navbar-nav>li>a {
+    font-size: 15px;
+    color: #737373;
+    text-transform: uppercase;
+    transition: all .7s ease 0s;
+    -webkit-transition: all .7s ease 0s;
+    -moz-transition: all .7s ease 0s;
+    -o-transition: all .7s ease 0s;
+    -ms-transition: all .7s ease 0s;
+    padding: 14px 15px;
+    font-weight: bold;
+}
+.navbar-default .navbar-nav>li>a:hover {
+    color: #42b3e5;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #000;
+}
+li a.active {
+    color: #42b3e5 !important;
+}
+.navbar-default .navbar-toggle {
+    border-color: #fff;
+    margin-top: 4px;
+}
 
