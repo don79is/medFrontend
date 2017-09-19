@@ -1,0 +1,32 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2>Blog</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <thead class="thead-inverse">
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Text</th>
+
+
+      </tr>
+      <tr *ngFor="let blog of blogs">
+        <td>
+          {{blog.id}}
+        </td>
+        <td>
+          {{blog.title}}
+        </td>
+        <td>
+          {{blog.text}}
+        </td>
+        <td>
+      </tr>
+      </thead>
+    </table>
+
+  </div>
+</div>
+
