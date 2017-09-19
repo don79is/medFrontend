@@ -5,6 +5,5 @@ export class User {
   email: string;
   password: string;
   position: string;
-  role_id: string;
   roles: any;
 }

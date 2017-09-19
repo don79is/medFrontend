@@ -85,7 +85,7 @@ li a.active {
     border-color: red;
     margin-top: 4px;
 }
-.container-about{padding-top: 100px;}
-.container-blog{padding-top: 100px;}
-.service-img{background-color: #42b3e5;}
+.blog{
+    padding-top: 170px;
+}
 

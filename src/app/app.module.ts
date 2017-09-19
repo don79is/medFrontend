@@ -19,6 +19,7 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { AboutComponent } from './about/about.component';
 import { MenuNAvBarComponent } from './menu-nav-bar/menu-nav-bar.component';
+import { BlogPostComponent } from './blog/blog-post/blog-post.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { MenuNAvBarComponent } from './menu-nav-bar/menu-nav-bar.component';
         ContactsComponent,
         AboutComponent,
         MenuNAvBarComponent,
+        BlogPostComponent,
     ],
     imports: [
         BrowserModule,
