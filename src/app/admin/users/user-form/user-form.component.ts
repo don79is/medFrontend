@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators, FormsModule} from '@angular/forms';
 import {User} from '../shared/user';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UsersService} from '../shared/users.services';
 import {RolesService} from '../../roles/shared/roles.services';
 import {Role} from '../../roles/shared/role';
+import {IMultiSelectOption} from 'angular-2-dropdown-multiselect';
 
 
 @Component({
@@ -17,12 +18,15 @@ export class UserFormComponent implements OnInit {
     title: string;
     user: User = new User();
     showPassword: boolean;
+    userRoles: string[] = [];
     roles: Role = new Role();
+  // o: IMultiSelectOption[];
+
     constructor(formBuilder: FormBuilder,
                 private router: Router,
                 private activatedRoute: ActivatedRoute,
                 private usersService: UsersService,
-    private rolesService: RolesService) {
+                private rolesService: RolesService) {
         this.form = formBuilder.group({
             first_name: ['', [
                 Validators.required,
@@ -39,7 +43,7 @@ export class UserFormComponent implements OnInit {
             email: ['', [
                 Validators.required,
             ]],
-            role_id: ['', ],
+            roles: [''],
             password: ['', [
                 Validators.required
             ]]
@@ -52,26 +56,35 @@ export class UserFormComponent implements OnInit {
             (error: Response) => console.log(error),
         );
         const id = this.activatedRoute.params.subscribe(params => {
-            let id = params['id'];
+            var id = params['id'];
             this.title = id ? 'Edit user' : 'New user';
             if (!id)
                 return;
-            this.usersService.getUser(id)
-                .subscribe(
-                    user => this.user = user,
-                    response => {
-                        if (response.status === 404) {
-                            this.router.navigate(['Not found']);
-                        }
-                    });
+            this.usersService.getUser(id).subscribe(
+                user => {
+                    this.user = user;
+                    for (let i = 0, length = this.user.roles.length; i < length; i++) {
+                        this.userRoles.push(this.user.roles[i].id.toString());
+                    }
+                }, response => {
+                    if (response.status === 404) {
+                        this.router.navigate(['Not Found']);
+                    }
+                });
         });
         if (this.router.url === '/admin/users/new') {
             this.showPassword = true;
         }
     }
 
+    onChange(e: any) {
+        console.log(e);
+    }
+
     onSave() {
-        let result, user = this.form.value;
+        let result = this.form.value;
+        const user = this.form.value;
+        console.log(user);
         if (this.user.id) {
             user.id = this.user.id;
             result = this.usersService.updateUser(user);

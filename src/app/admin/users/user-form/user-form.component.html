@@ -22,12 +22,9 @@
           <input class="form-control" type="text" id="position" name="position" value="" [(ngModel)]="user.position" formControlName="position">
         </div>
         <div class="form-group">
-          <label for="role_id">Role</label>
-          <select class="form-control" id="role_id" name="role_id" [(ngModel)]="user.role_id" formControlName="role_id" >
-            <option *ngFor="let role of roles" [ngValue]="role" >{{role.name}}</option>
-            <option value=""></option>
-
-          </select>
+          <label for="roles">Role</label>
+       <br>
+          <ss-multiselect-dropdown [options]="roles"  [(ngModel)]="userRoles" formControlName="roles" (ngModelChange)="onChange($event)"></ss-multiselect-dropdown>
         </div>
         <div class="form-group" *ngIf="showPassword">
           <label for="password">Password</label>

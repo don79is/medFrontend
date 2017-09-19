@@ -38,7 +38,7 @@
                     <!--{{user.roles[0].name}}-->
 
                     <!--if user hae many roles-->
-                <span *ngFor="let role of user.roles">{{role.name}}</span>
+                <span *ngFor="let role of user.roles, let isLast=last">{{role.name}}{{isLast ?'' : ', '}}</span>
                 </td>
 
                 <td>
