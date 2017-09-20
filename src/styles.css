@@ -88,4 +88,9 @@ li a.active {
 .blog{
     padding-top: 170px;
 }
-
+h6{
+    text-size: 9px;
+}
+.panel-title{
+    font-size: 12px;
+}
