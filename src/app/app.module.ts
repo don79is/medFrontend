@@ -18,7 +18,7 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { AboutComponent } from './about/about.component';
 import { MenuNAvBarComponent } from './menu-nav-bar/menu-nav-bar.component';
-import {BlogsModule} from './blogs/blogss.module';
+import {BlogsModule} from './blogs/blogs.module';
 import {blogsRouting} from './blogs/blogs.routing';
 
 

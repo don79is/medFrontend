@@ -1,15 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
-.add-button-top{
+.add-button-top {
     margin-top: -35px;
 }
+
 li {
     list-style: none;
 }
+
 a:hover,
 a:visited,
 a {
     text-decoration: none;
 }
+
 h1,
 h2 {
     text-transform: uppercase;
@@ -24,12 +27,14 @@ h2 {
     width: 100%;
     z-index: 99999;
 }
+
 .header-backup {
     width: 20px;
     height: 119px;
     background: transparent;
     margin: auto;
 }
+
 .top-header img.logo {
     margin-bottom: 25px;
     margin-top: -15px;
@@ -39,6 +44,7 @@ h2 {
     -o-transition: all .5s ease 0s;
     -ms-transition: all .5s ease 0s;
 }
+
 .navbar-default {
     background-color: transparent;
     border-color: transparent;
@@ -50,17 +56,21 @@ h2 {
     -o-transition: all .5s ease 0s;
     -ms-transition: all .5s ease 0s;
 }
+
 .nav-bar {
     margin-top: 29px;
 }
+
 .navbar-toggle span {
     color: #fff;
 }
+
 ul.nav {
     margin: 0;
     padding: 0;
 }
-.navbar-default .navbar-nav>li>a {
+
+.navbar-default .navbar-nav > li > a {
     font-size: 15px;
     color: #737373;
     text-transform: uppercase;
@@ -72,25 +82,46 @@ ul.nav {
     padding: 14px 15px;
     font-weight: bold;
 }
-.navbar-default .navbar-nav>li>a:hover {
+
+.navbar-default .navbar-nav > li > a:hover {
     color: #42b3e5;
 }
+
 .navbar-default .navbar-toggle .icon-bar {
     background-color: #000;
 }
+
 li a.active {
     color: #42b3e5 !important;
 }
+
 .navbar-default .navbar-toggle {
     border-color: red;
     margin-top: 4px;
 }
-.blog{
+
+.blog {
     padding-top: 170px;
 }
-h6{
+.about{
+    padding-top: 170px;
+}
+
+.blog h6 {
     text-size: 9px;
 }
-.panel-title{
+.header-backup {
+    height: 80px;
+}
+
+.panel-title {
     font-size: 12px;
+}
+
+.top-header img.logo {
+    margin-bottom: 5px;
+    margin-top: -50px;
+}
+.blog-posts {
+    padding-top: 170px;
 }

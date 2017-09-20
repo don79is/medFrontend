@@ -1,19 +1,24 @@
-<div class="blog">
+<div class="blog-posts" >
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title" >Post by: {{post.user_name['first_name']}}{{'  '}}{{post.user_name['last_name']}}</h3>
+            <div class="row">
+                <div class="col-md-8 text-left">
+
+                    <h3> <a routerLink="{{post.id}}">{{post.title}}</a></h3>
+                    <h3 class="panel-title" >Post by: {{post.user_name['first_name']}}{{'  '}}{{post.user_name['last_name']}}</h3>
+
+                </div>
+                <div class="col-md-4 text-right">
+                    <h6> {{post.created_at |date : 'MMMM d, y'}}</h6>
+                </div>
+
+            </div>
+
+            <!--<div class="pull-left"></div>-->
+            <!--<div class="pull-right"> <h3 class="panel-title"> <a routerLink="{{post.id}}">{{post.title}}  </a></h3></div>-->
+        </div>
+        <div class="panel-body">
+            {{post.text}}
         </div>
     </div>
-    <div class="panel panel-default">
-       <h6>Add on:<br>{{post.created_at |date : 'MMMM d, y'}}</h6>
-    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h3 class="panel-title">{{post.title}}</h3>
-    </div>
-
-</div>
-<div class="panel-body">
-    {{post.text}}
 </div>
