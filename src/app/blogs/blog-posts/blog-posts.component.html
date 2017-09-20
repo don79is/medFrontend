@@ -1,3 +1,19 @@
-<p>
-  blog-posts works!
-</p>
+<div class="blog">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title" >Post by: {{post.user_name['first_name']}}{{'  '}}{{post.user_name['last_name']}}</h3>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <p>{{post.created_at |date : 'MMMM d, y'}}</p>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{post.title}}</h3>
+    </div>
+
+</div>
+<div class="panel-body">
+    {{post.text}}
+</div>

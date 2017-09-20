@@ -2,27 +2,26 @@ import {Injectable} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Observable';
-import {Blog} from './blog';
+
 @Injectable()
 export class BlogsService {
     constructor(private http: Http) {
 
     }
     getBlogs(): Observable<any> {
-        return this.http.get('http://localhost:4200/blog').map(
-            (response: Response) => {
-                return response.json().blogs;
+        return this.http.get('http://medback.dev/api/posts/allposts').map(
+            (response: Response) => {console.log(response.json().posts);
+                return response.json().posts;
             }
         );
     }
-    // getPost(id: any): Observable<any> {
-    //     const token = this.authService.getToken();
-    //     return this.http.get('http://medback.dev//api/posts/' + id + '?token=' + token, ).map(
-    //         (response: Response) => {
-    //             return response.json().post;
-    //         }
-    //     );
-    // }
+    getBlog(id: any): Observable<any> {
+        return this.http.get('http://medback.dev//api/post/' + id ).map(
+            (response: Response) => {
+                return response.json().post;
+            }
+        );
+    }
     //
     // createPost(post) {
     //     const token = this.authService.getToken();

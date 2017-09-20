@@ -7,11 +7,13 @@ import {CommonModule} from '@angular/common';
 
 import {BlogsService} from './shared/blogs.services';
 import {BlogsComponent} from './blogs.component';
+import {BlogPostsComponent} from './blog-posts/blog-posts.component';
 
 
 @NgModule({
     declarations: [
         BlogsComponent,
+        BlogPostsComponent,
     ],
     imports: [
         CommonModule,
