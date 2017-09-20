@@ -2,9 +2,11 @@ import {Injectable} from '@angular/core';
 import {Http, Headers, Response} from '@angular/http';
 import 'rxjs/Rx';
 import {Router} from '@angular/router';
+import {tokenNotExpired} from 'angular2-jwt';
 @Injectable()
 
 export class AuthService {
+    result: Array<object>;
     constructor(private http: Http, private router: Router) {
     }
 
@@ -30,10 +32,7 @@ export class AuthService {
         return localStorage.getItem('token');
     }
     isLoggedIn() {
-        if (localStorage.getItem('token')) {
-            return true;
-        }
-        return false;
+            return tokenNotExpired();
     }
     logout() {
         localStorage.removeItem('token');
