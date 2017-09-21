@@ -20,6 +20,7 @@ import { AboutComponent } from './about/about.component';
 import { MenuNAvBarComponent } from './menu-nav-bar/menu-nav-bar.component';
 import {BlogsModule} from './blogs/blogs.module';
 import {blogsRouting} from './blogs/blogs.routing';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 
@@ -48,6 +49,7 @@ import {blogsRouting} from './blogs/blogs.routing';
         rolesRouting,
         BlogsModule,
         blogsRouting,
+        BrowserAnimationsModule,
     ],
     providers: [],
     bootstrap: [AppComponent]
