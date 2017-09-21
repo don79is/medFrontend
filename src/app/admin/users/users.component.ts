@@ -1,10 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from './shared/user';
 import {UsersService} from './shared/users.services';
+import {fadeInAnimation} from '../../animations/fade-in.animation';
 
 
 @Component({
     selector: 'app-users',
+    animations: [fadeInAnimation],
+    host: {'[@fadeInAnimation]': ''},
     templateUrl: './users.component.html',
     styleUrls: ['./users.component.css']
 })

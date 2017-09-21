@@ -10,7 +10,8 @@ import {AuthService} from '../auth.service';
 import {UsersService} from './shared/users.services';
 import {UsersComponent} from './users.component';
 import {UserFormComponent} from './user-form/user-form.component';
-import {MultiselectDropdownModule} from 'angular-2-dropdown-multiselect';
+import { MultiselectDropdownModule } from 'angular-2-dropdown-multiselect';
+
 
 
 @NgModule({

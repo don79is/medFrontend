@@ -3,24 +3,27 @@ import {FormBuilder, FormGroup, Validators, FormsModule} from '@angular/forms';
 import {User} from '../shared/user';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UsersService} from '../shared/users.services';
-import {RolesService} from '../../roles/shared/roles.services';
 import {Role} from '../../roles/shared/role';
-import {IMultiSelectOption} from 'angular-2-dropdown-multiselect';
+import {RolesService} from '../../roles/shared/roles.services';
 
+import {IMultiSelectOption} from 'angular-2-dropdown-multiselect';
+import {slideInOutAnimation} from '../../../animations/animation';
 
 @Component({
     selector: 'app-user-form',
     templateUrl: './user-form.component.html',
-    styleUrls: ['./user-form.component.css']
+    styleUrls: ['./user-form.component.css'],
+    animations: [slideInOutAnimation],
+    host: {'[@slideInOutAnimation]': ''}
 })
 export class UserFormComponent implements OnInit {
+
     form: FormGroup;
     title: string;
     user: User = new User();
-    showPassword: boolean;
     userRoles: string[] = [];
-    roles: Role = new Role();
-  // o: IMultiSelectOption[];
+    roles: Role[] = [];
+    showPassword: boolean;
 
     constructor(formBuilder: FormBuilder,
                 private router: Router,
@@ -41,7 +44,7 @@ export class UserFormComponent implements OnInit {
                 Validators.minLength(3)
             ]],
             email: ['', [
-                Validators.required,
+                Validators.required
             ]],
             roles: [''],
             password: ['', [
@@ -50,28 +53,37 @@ export class UserFormComponent implements OnInit {
         });
     }
 
+
     ngOnInit() {
         this.rolesService.getRoles().subscribe(
             roles => this.roles = roles,
-            (error: Response) => console.log(error),
+            (error: Response) => console.log(error)
         );
-        const id = this.activatedRoute.params.subscribe(params => {
+
+        var id = this.activatedRoute.params.subscribe(params => {
             var id = params['id'];
-            this.title = id ? 'Edit user' : 'New user';
+            this.title = id ? 'Edit User' : 'New User';
+
             if (!id)
                 return;
+
             this.usersService.getUser(id).subscribe(
                 user => {
                     this.user = user;
-                    for (let i = 0, length = this.user.roles.length; i < length; i++) {
+                    for (var i = 0, length = this.user.roles.length; i < length; i++) {
                         this.userRoles.push(this.user.roles[i].id.toString());
                     }
-                }, response => {
+                },
+                // role => this.role = role,
+                response => {
                     if (response.status === 404) {
-                        this.router.navigate(['Not Found']);
+                        this.router.navigate(['NotFound']);
                     }
+
                 });
+
         });
+
         if (this.router.url === '/admin/users/new') {
             this.showPassword = true;
         }
@@ -82,18 +94,20 @@ export class UserFormComponent implements OnInit {
     }
 
     onSave() {
-        let result = this.form.value;
-        const user = this.form.value;
-        console.log(user);
+        var result = this.form.value;
+        var user = this.form.value;
         if (this.user.id) {
             user.id = this.user.id;
             result = this.usersService.updateUser(user);
         } else {
             result = this.usersService.createUser(user);
         }
+
         result.subscribe(
             user => this.router.navigate(['admin/users']),
             error => console.log(error)
         );
     }
+
+
 }

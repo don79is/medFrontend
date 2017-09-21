@@ -103,9 +103,6 @@ li a.active {
 .blog {
     padding-top: 170px;
 }
-.about{
-    padding-top: 170px;
-}
 
 .blog h6 {
     text-size: 9px;
@@ -125,3 +122,17 @@ li a.active {
 .blog-posts {
     padding-top: 170px;
 }
+.panel > .panel-heading {
+    color: black;
+}.side-form{
+     position: absolute;
+     z-index: 100;
+     background: #fff;
+     top:0;
+     right: 0;
+     width: 80%;
+     height: 100%;
+     overflow: auto;
+     padding: 20px;
+     border-left: 1px solid #e0e0e0;
+ }
