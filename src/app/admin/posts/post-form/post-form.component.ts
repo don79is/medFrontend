@@ -3,11 +3,14 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Post} from '../shared/post';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PostsService} from '../shared/posts.services';
+import {slideInOutAnimation} from '../../../animations/slide-in-out.animation';
 
 @Component({
     selector: 'app-post-form',
     templateUrl: './post-form.component.html',
-    styleUrls: ['./post-form.component.css']
+    styleUrls: ['./post-form.component.css'],
+    animations: [slideInOutAnimation],
+    host: {'[@slideInOutAnimation]': ''}
 })
 export class PostFormComponent implements OnInit {
     form: FormGroup;
@@ -37,7 +40,7 @@ export class PostFormComponent implements OnInit {
 
     ngOnInit() {
         const id = this.activatedRoute.params.subscribe(params => {
-            let id = params['id'];
+            var id = params['id'];
             this.title = id ? 'Edit post' : 'New post';
             this.button = id ? 'Change post' : 'Add post';
             if (!id)
@@ -53,7 +56,7 @@ export class PostFormComponent implements OnInit {
         });
     }
     onSave() {
-        let result, post = this.form.value;
+        var result, post = this.form.value;
         if (this.post.id){
             post.id = this.post.id;
             result = this.postsService.updatePost(post);

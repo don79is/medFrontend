@@ -3,15 +3,18 @@ import {Http, Response, Headers} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Observable';
 import {AuthService} from '../../auth.service';
-import {Post} from './post';
+import {GlobalVariable} from '../../../config/global';
 @Injectable()
 export class PostsService {
+
+    private  baseApiUrl = GlobalVariable.BASE_API_URL;
+
     constructor(private http: Http, private authService: AuthService) {
 
     }
     getPosts(): Observable<any> {
         const token = this.authService.getToken();
-        return this.http.get('http://medback.dev//api/posts?token=' + token, ).map(
+        return this.http.get(this.baseApiUrl + 'posts?token=' + token, ).map(
             (response: Response) => {
                 return response.json().posts;
             }
@@ -19,7 +22,7 @@ export class PostsService {
     }
     getPost(id: any): Observable<any> {
         const token = this.authService.getToken();
-        return this.http.get('http://medback.dev//api/posts/' + id + '?token=' + token, ).map(
+        return this.http.get(this.baseApiUrl + '/posts/' + id + '?token=' + token, ).map(
             (response: Response) => {
                 return response.json().post;
             }
@@ -28,7 +31,7 @@ export class PostsService {
 
     createPost(post) {
         const token = this.authService.getToken();
-        return this.http.post('http://medback.dev/api/posts?token=' + token,
+        return this.http.post(this.baseApiUrl + 'posts?token=' + token,
             post,
             {headers: new Headers({'X-Requested-With': 'XTMLHttpRequest'})}
         ).map(
@@ -37,7 +40,7 @@ export class PostsService {
     }
     updatePost(post) {
         const  token = this.authService.getToken();
-        return this.http.put('http://medback.dev//api/posts/' + post.id + '?token=' + token,
+        return this.http.put(this.baseApiUrl + 'posts/' + post.id + '?token=' + token,
             JSON.stringify(post),
             {headers: new Headers({'Content-type': 'application/json'})}
         ).map(
@@ -46,7 +49,7 @@ export class PostsService {
     }
     deletePost (id: any) {
         const token = this.authService.getToken();
-        return this.http.delete('http://medback.dev/api/posts/' + id + '?token=' + token);
+        return this.http.delete(this.baseApiUrl + 'posts/' + id + '?token=' + token);
     }
 }
 

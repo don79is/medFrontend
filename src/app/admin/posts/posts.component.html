@@ -1,41 +1,47 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h2>Displaying {{posts.length}} <b>post(s).</b> </h2>
-    <div class="add-button-top pull-right">
-      <button routerLink="/admin/posts/new" type="button" class="btn btn-info" name="button">+Add post</button>
+<div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2>Displaying {{posts.length}} <b>post(s).</b></h2>
+            <div class="add-button-top pull-right">
+                <button routerLink="/admin/posts/new" type="button" class="btn btn-info" name="button">+Add post
+                </button>
+            </div>
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <thead class="thead-inverse">
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Text</th>
+                    <th>Actions</th>
+
+                </tr>
+                <tr *ngFor="let post of posts">
+                    <td>
+                        {{post.id}}
+                    </td>
+                    <td>
+                        {{post.title}}
+                    </td>
+                    <td>
+                        {{post.text}}
+                    </td>
+                    <td>
+                        <button [routerLink]="['edit', post.id]" class="btn btn-sm btn-info">
+                            <span class="glyphicon glyphicon-edit"></span>
+                        </button>
+                        <button (click)="onDelete(post)" type="button" class="btn btn-sm btn-danger">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </td>
+                </tr>
+                </thead>
+            </table>
+
+        </div>
     </div>
-  </div>
-  <div class="panel-body">
-    <table class="table">
-      <thead class="thead-inverse">
-      <tr>
-        <th>Id</th>
-        <th>Title</th>
-        <th>Text</th>
-        <th>Actions</th>
-
-      </tr>
-      <tr *ngFor="let post of posts">
-        <td>
-          {{post.id}}
-        </td>
-        <td>
-          {{post.title}}
-        </td>
-        <td>
-          {{post.text}}
-        </td>
-        <td>
-          <button [routerLink]="['/admin/posts', post.id]" class="btn btn-sm btn-info" >
-            <span class="glyphicon glyphicon-edit"></span>
-          </button>
-          <button (click)="onDelete(post)" type="button" class="btn btn-sm btn-danger" >
-            <span class="glyphicon glyphicon-trash"></span>
-          </button>
-        </td>
-      </tr>
-      </thead>
-    </table>
-
-  </div>
+    <div class="view-side-form">
+        <router-outlet></router-outlet>
+    </div>
 </div>

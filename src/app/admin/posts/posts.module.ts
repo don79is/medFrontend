@@ -10,6 +10,7 @@ import {AuthService} from '../auth.service';
 import {PostsService} from './shared/posts.services';
 import {PostsComponent} from './posts.component';
 import {PostFormComponent} from './post-form/post-form.component';
+import {MultiselectDropdownModule} from "angular-2-dropdown-multiselect";
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import {PostFormComponent} from './post-form/post-form.component';
         RouterModule,
         ReactiveFormsModule,
         FormsModule,
+        MultiselectDropdownModule,
     ],
     exports: [
        PostsComponent

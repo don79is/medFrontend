@@ -1,9 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {Post} from './shared/post';
 import {PostsService} from './shared/posts.services';
+import {fadeInAnimation} from "../../animations/fade-in.animation";
 
 @Component({
     selector: 'app-posts',
+    animations: [fadeInAnimation],
+    host: {'[@fadeInAnimation]': ''},
     templateUrl: './posts.component.html',
     styleUrls: ['./posts.component.css']
 })

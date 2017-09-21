@@ -108,6 +108,5 @@ export class UserFormComponent implements OnInit {
             error => console.log(error)
         );
     }
-
-
 }
+
