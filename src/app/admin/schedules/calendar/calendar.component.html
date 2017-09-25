@@ -21,7 +21,7 @@
                                 Previous
                             </div>
                             <div
-                                    class="btn btn-outline-secondary"
+                                    class="btn btn-dark"
                                     mwlCalendarToday
                                     [(viewDate)]="viewDate">
                                 Today
@@ -42,7 +42,7 @@
 
             </div>
             <div class="form-goup">
-                <mwl-calendar-month-view [viewDate]="viewDate" [events]="events">
+                <mwl-calendar-month-view [viewDate]="viewDate" [events]="events" (dayClicked)="dayClicked($event.day)">
 
                 </mwl-calendar-month-view>
             </div>
