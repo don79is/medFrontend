@@ -12,6 +12,7 @@ import {MultiselectDropdownModule} from 'angular-2-dropdown-multiselect';
 import {SchedulesComponent} from './schedules.component';
 import { ScheduleFormComponent } from './schedule-form/schedule-form.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import {CalendarModule} from 'angular-calendar';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { CalendarComponent } from './calendar/calendar.component';
         ReactiveFormsModule,
         FormsModule,
         MultiselectDropdownModule,
+        CalendarModule.forRoot()
     ],
     exports: [
         SchedulesComponent
