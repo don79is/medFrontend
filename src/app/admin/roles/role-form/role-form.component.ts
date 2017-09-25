@@ -3,11 +3,15 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Role} from '../shared/role';
 import {RolesService} from '../shared/roles.services';
 import {ActivatedRoute, Router} from '@angular/router';
+import {AppService} from '../../../shared/app.service';
+import {slideInOutAnimation} from '../../../animations/slide-in-out.animation';
 
 @Component({
     selector: 'app-role-form',
     templateUrl: './role-form.component.html',
-    styleUrls: ['./role-form.component.css']
+    styleUrls: ['./role-form.component.css'],
+    animations: [slideInOutAnimation],
+    host: {'[@slideInOutAnimation]': ''}
 })
 export class RoleFormComponent implements OnInit {
     form: FormGroup;
@@ -18,7 +22,8 @@ export class RoleFormComponent implements OnInit {
     constructor(formBuilder: FormBuilder,
                 private router: Router,
                 private activatedRoute: ActivatedRoute,
-                private rolesService: RolesService) {
+                private rolesService: RolesService,
+                private appService: AppService) {
         this.form = formBuilder.group({
             name: ['', [
                 Validators.required,
@@ -54,7 +59,10 @@ export class RoleFormComponent implements OnInit {
             result = this.rolesService.createRole(role);
         }
         result.subscribe(
-            role => this.router.navigate(['admin/roles']),
+            role => {
+                this.router.navigate(['admin/roles']);
+                this.appService.publish('roles-updated');
+            },
             error => console.log(error)
         );
     }

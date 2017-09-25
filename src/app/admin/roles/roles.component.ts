@@ -1,19 +1,29 @@
 import {Component, OnInit} from '@angular/core';
 import {Role} from './shared/role';
 import {RolesService} from './shared/roles.services';
+import {Subscription} from 'rxjs/Subscription';
+import {AppService} from '../../shared/app.service';
+import {fadeInAnimation} from '../../animations/fade-in.animation';
 
 @Component({
     selector: 'app-roles',
+    animations: [fadeInAnimation],
+    host: {'[@fadeInAnimation]': ''},
     templateUrl: './roles.component.html',
     styleUrls: ['./roles.component.css']
 })
 export class RolesComponent implements OnInit {
     public roles: Role[] = [];
-
-    constructor(private rolesService: RolesService) {
+    subscription: Subscription;
+    constructor(private rolesService: RolesService,
+                private  appService: AppService) {
     }
 
     ngOnInit() {
+        this.loadRoles();
+        this.subscription = this.appService.on('roles-updated').subscribe(() => this.loadRoles());
+    }
+    loadRoles() {
         this.rolesService.getRoles().subscribe(
             roles => this.roles = roles,
             (error: Response) => console.log(error),

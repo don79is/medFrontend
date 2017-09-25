@@ -1,36 +1,42 @@
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <h2>Displaying {{roles.length}} <b>role(s).</b></h2>
-        <div class="add-button-top pull-right">
-            <button routerLink="/admin/roles/new" type="button" class="btn btn-info" name="button">+Add role</button>
+<div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2>Displaying {{roles.length}} <b>role(s).</b></h2>
+            <div class="add-button-top pull-right">
+                <button routerLink="/admin/roles/new" type="button" class="btn btn-info" name="button">+Add role
+                </button>
+            </div>
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <thead class="thead-inverse">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+
+                </tr>
+                <tr *ngFor="let role of roles">
+                    <td>
+                        {{role.id}}
+                    </td>
+                    <td>
+                        {{role.name}}
+                    </td>
+                    <td>
+                        <button [routerLink]="['/admin/roles', role.id]" class="btn btn-sm btn-info">
+                            <span class="glyphicon glyphicon-edit"></span>
+                        </button>
+                        <button (click)="onDelete(role)" type="button" class="btn btn-sm btn-danger">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </td>
+                </tr>
+                </thead>
+            </table>
+
         </div>
     </div>
-    <div class="panel-body">
-        <table class="table">
-            <thead class="thead-inverse">
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-
-            </tr>
-            <tr *ngFor="let role of roles">
-                <td>
-                    {{role.id}}
-                </td>
-                <td>
-                    {{role.name}}
-                </td>
-                <td>
-                    <button [routerLink]="['/admin/roles', role.id]" class="btn btn-sm btn-info">
-                        <span class="glyphicon glyphicon-edit"></span>
-                    </button>
-                    <button (click)="onDelete(role)" type="button" class="btn btn-sm btn-danger">
-                        <span class="glyphicon glyphicon-trash"></span>
-                    </button>
-                </td>
-            </tr>
-            </thead>
-        </table>
-
+    <div class="view-side-form">
+        <router-outlet></router-outlet>
     </div>
 </div>

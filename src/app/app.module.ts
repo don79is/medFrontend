@@ -21,6 +21,10 @@ import { MenuNAvBarComponent } from './menu-nav-bar/menu-nav-bar.component';
 import {BlogsModule} from './blogs/blogs.module';
 import {blogsRouting} from './blogs/blogs.routing';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {SchedulesModule} from './admin/schedules/schedules.module';
+import {schedulesRouting} from './admin/schedules/scheduless.routing';
+import {AppService} from './shared/app.service';
+
 
 
 
@@ -49,9 +53,11 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
         rolesRouting,
         BlogsModule,
         blogsRouting,
+        SchedulesModule,
+        schedulesRouting,
         BrowserAnimationsModule,
     ],
-    providers: [],
+    providers: [AppService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
