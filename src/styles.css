@@ -488,3 +488,6 @@ li a.active {
     height: 0;
     border-color: transparent;
     border-style: solid; }
+textarea{
+    resize: none;
+}
