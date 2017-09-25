@@ -1,0 +1,66 @@
+<div class="col-md-12">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>Displaying {{users.length}} <b>user(s).</b></h4>
+      <div class="add-button-top pull-right">
+        <button routerLink="/admin/users/new" type="button" class="btn btn-success" name="button">+Add user
+        </button>
+      </div>
+    </div>
+    <div class="panel-body">
+      <table class="table">
+        <thead class="thead-inverse">
+        <tr>
+          <th>Id</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Position</th>
+          <th>Role</th>
+          <th>Actions</th>
+        </tr>
+        <tr *ngFor="let user of users">
+          <td>
+            {{user.id}}
+          </td>
+          <td>
+            {{user.first_name}}
+          </td>
+          <td>
+            {{user.last_name}}
+          </td>
+          <td>
+            {{user.email}}
+          </td>
+          <td>
+            {{user.position}}
+          </td>
+          <td>
+            <!-- if user can have one role-->
+            <!--{{user.roles[0].name}}-->
+
+            <!--if user hae many roles-->
+            <span *ngFor="let role of user.roles, let isLast=last">{{role.name}}{{isLast ?'' : ', '}}</span>
+          </td>
+
+          <td>
+            <!--<button [routerLink]="['edit', user.id]" type="button" class="btn btn-sm btn-info">-->
+              <!--<span class="glyphicon glyphicon-edit"></span>-->
+            <!--</button>-->
+            <!--<button (click)="onDelete(user)" type="button" class="btn btn-sm btn-danger">-->
+              <!--<span class="glyphicon glyphicon-trash"></span>-->
+            <!--</button>-->
+            <button [routerLink]="['calendar', user.id]" class="btn btn-info" >
+              <span class="glyphicon glyphicon-calendar"></span>Work hours</button>
+          </td>
+        </tr>
+        </thead>
+      </table>
+
+    </div>
+  </div>
+
+  <div class="view-side-form">
+    <router-outlet></router-outlet>
+  </div>
+</div>
