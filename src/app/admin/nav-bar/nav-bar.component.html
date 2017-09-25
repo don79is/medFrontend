@@ -1,9 +1,36 @@
-<div class="container" *ngIf="isLoggedIn()">
-  <div class="row">
-    <a routerLink="admin/users" class="btn btn-sm btn-info">Users</a>
-    <a routerLink="admin/posts"class="btn btn-sm btn-info">Posts</a>
-    <a routerLink="admin/roles"class="btn btn-sm btn-info">Roles</a>
-    <a routerLink="admin/schedules"class="btn btn-sm btn-info">Schedules</a>
-    <a (click)="onLogout()" class="btn btn-sm btn-danger">Log Out</a>
-  </div>
+<div class="wrap" *ngIf="isLoggedIn()">
+    <nav class="nav-bar navbar-inverse" role="navigation">
+        <div id="top-menu" class="container-fluid active">
+            <a class="navbar-brand" href="#">MedApp</a>
+            <ul class="nav navbar-nav">
+                <li><a routerLink="admin/login" (click)="onLogout()"><span class="fa fa-power-off"></span>Logout</a>
+            </ul>
+        </div>
+    </nav>
+    <aside id="side-menu" class="aside" role="navigation">
+        <ul class="nav nav-list accordion">
+            <li class="nav-header">
+                <a routerLink="admin/users" class="fa fa-lg fa-users">Users</a>
+            </li>
+            <li class="nav-header">
+                <div class="link"><a routerLink="admin/roles" class="fa fa-lg fa-users">Roles</a></div>
+            </li>
+            <li class="nav-header">
+                <div class="link"><a routerLink="admin/posts" class="fa fa-lg fa-users">Posts</a></div>
+            </li>
+            <li class="nav-header">
+                <div class="link"><a routerLink="admin/schedules" class="fa fa-lg fa-users">Schedules</a></div>
+            </li>
+        </ul>
+    </aside>
+
+    <!--Body content-->
+    <div class="content">
+        <div class="top-bar">
+            <a href="#menu" class="side-menu-link burger">
+                <span class='burger_inside' id='bgrOne'></span>
+                <span class='burger_inside' id='bgrTwo'></span>
+                <span class='burger_inside' id='bgrThree'></span>
+            </a>
 </div>
+

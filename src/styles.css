@@ -491,3 +491,8 @@ li a.active {
 textarea{
     resize: none;
 }
+.panel{
+    margin-top: 40px;
+    margin-left: 232px;
+    margin-right: -60px;
+}
