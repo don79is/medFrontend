@@ -1,22 +1,22 @@
 <div class="wrap" *ngIf="isLoggedIn()">
     <nav class="nav-bar navbar-inverse" role="navigation">
         <div id="top-menu" class="container-fluid active">
-            <a class="navbar-brand" href="#">MedApp</a>
-            <ul class="nav navbar-nav">
-                <li><a routerLink="admin/login" (click)="onLogout()"><span class="fa fa-power-off"></span>Logout</a>
+            <a class="navbar-brand" routerLink="/admin">Admin MedApp</a>
+            <ul class="nav nav bar-nav">
+                <li><a routerLink="admin/login" (click)="onLogout()">Logout</a>
             </ul>
         </div>
     </nav>
     <aside id="side-menu" class="aside" role="navigation">
         <ul class="nav nav-list accordion">
             <li class="nav-header">
-                <a routerLink="admin/users" class="fa fa-lg fa-users">Users</a>
+                <div class="link"><a routerLink="admin/users" class="fa fa-lg ">Users</a></div>
             </li>
             <li class="nav-header">
-                <div class="link"><a routerLink="admin/roles" class="fa fa-lg fa-users">Roles</a></div>
+                <div class="link"><a routerLink="admin/posts" class="fa fa-lg ">Posts</a></div>
             </li>
             <li class="nav-header">
-                <div class="link"><a routerLink="admin/posts" class="fa fa-lg fa-users">Posts</a></div>
+                <div class="link"><a routerLink="admin/roles" class="fa fa-lg ">Roles</a></div>
             </li>
             <li class="nav-header">
                 <div class="link"><a routerLink="admin/schedules" class="fa fa-lg fa-users">Schedules</a></div>
@@ -27,10 +27,15 @@
     <!--Body content-->
     <div class="content">
         <div class="top-bar">
-            <a href="#menu" class="side-menu-link burger">
+            <a href="side-menu" class="side-menu-link burger">
                 <span class='burger_inside' id='bgrOne'></span>
                 <span class='burger_inside' id='bgrTwo'></span>
                 <span class='burger_inside' id='bgrThree'></span>
             </a>
-</div>
+        </div>
+        <div class="content-inner">
 
+        </div>
+    </div>
+
+</div>

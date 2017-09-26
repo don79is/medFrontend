@@ -7,9 +7,6 @@
 .wrap .nav-bar .navbar-form {
     margin-top: 25px;
 }
-.nav-bar{
-   margin-top: 0;
-}
 .wrap .nav-bar .nav {
     float: right !important;
 }
@@ -63,8 +60,6 @@
     top: 20px;
 }
 .wrap #side-menu {
-    position: absolute;
-    z-index: -1;
     background: #404040;
     width: 22em;
     padding-top: 40px;
